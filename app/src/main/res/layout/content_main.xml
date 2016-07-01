@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity"
+    android:visibility="visible">
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ph_no"
+        android:hint="Enter number"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:src="@drawable/contactt"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/opencontact"
+        android:background="#fff"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/send_btn"
+        android:layout_toEndOf="@+id/send_btn" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/text_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@android:drawable/ic_dialog_email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="11dp"
+        app:layout_anchorGravity="bottom|right|end"
+        android:theme="@style/Base.Theme.AppCompat.Light" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/mic_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="170dp"
+        android:clickable="true"
+        android:src="@drawable/mic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+
+        app:layout_anchorGravity="bottom|right|end"
+        android:tint="#d7dbdd"
+        android:theme="@style/Theme.Design.Light" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msg"
+        android:layout_above="@+id/text_fab"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="86dp"
+        android:hint="Enter message"
+        android:visibility="invisible"
+        android:layout_alignRight="@+id/ph_no"
+        android:layout_alignEnd="@+id/ph_no" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send_btn"
+        android:src="@drawable/sendicon"
+        android:layout_toRightOf="@+id/msg"
+        android:background="#fff"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/msg"
+        android:layout_alignBottom="@+id/msg"
+        />
+
+
+</RelativeLayout>
