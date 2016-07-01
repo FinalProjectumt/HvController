@@ -1,10 +1,8 @@
 package netroxtech.com.hvcontroller;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
@@ -17,19 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RadioButton;
 import android.widget.Toast;
-import com.github.clans.fab.FloatingActionMenu;
-
-import java.text.CollationElementIterator;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    ImageButton send_msg;
+    EditText msg_body;
     SmsManager smsManager;
     private static final int RESULT_PICK_CONTACT = 100;
-
     private EditText ph_noo;
 
 
@@ -38,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        send_msg = (ImageButton) findViewById(R.id.send_btn);
+        msg_body = (EditText) findViewById(R.id.msg);
         setSupportActionBar(toolbar);
-
 
         ImageButton contact_open = (ImageButton) findViewById(R.id.opencontact);
        contact_open.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
-
         FloatingActionButton openspeak_button = (FloatingActionButton) findViewById(R.id.mic_fab);
         openspeak_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,15 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SpeakToText.class));
             }
         });
-        final ImageButton send_msg = (ImageButton) findViewById(R.id.send_btn);
-        final EditText msg_body = (EditText) findViewById(R.id.msg);
           ph_noo = (EditText) findViewById(R.id.ph_no);
 
             FloatingActionButton opentext = (FloatingActionButton) findViewById(R.id.text_fab);
         opentext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 msg_body.setVisibility(View.VISIBLE);
                 send_msg.setVisibility(View.VISIBLE);
@@ -94,11 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Send  Sms Successfully", Toast.LENGTH_LONG).show();
 
                 }
-
-
             }
         });
-
     }
 
     @Override
@@ -125,11 +112,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToFirst();
 
             int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-
             phoneNo = cursor.getString(phoneIndex);
-
-
-
             ph_noo.setText(phoneNo);
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,11 +128,58 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+        public void onRadioButtonClicked(View view) {
+            // Is the button now checked?
+            boolean checked = ((RadioButton) view).isChecked();
+
+            // Check which radio button was clicked
+            switch(view.getId()) {
+                case R.id.Fanon:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("fan on");
+
+                    break;
+                case R.id.Fanoff:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("fan off");
+
+                    break;
+                case  R.id.Lighton:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("light on");
+                    break;
+
+                case  R.id.Lightoff:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("light off");
+                    break;
+
+                case  R.id.Dooropen:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("door open");
+                    break;
+
+                case  R.id.Doorclose:
+                    if (checked)
+                        visible_func();
+                    msg_body.setText("door close");
+                    break;
+            }
+        }
+    public void visible_func(){
+        msg_body.setVisibility(View.VISIBLE);
+        send_msg.setVisibility(View.VISIBLE);
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -158,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+
+}
 
 }

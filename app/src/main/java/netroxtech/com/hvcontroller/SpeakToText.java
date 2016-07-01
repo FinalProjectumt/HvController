@@ -18,7 +18,6 @@ public class SpeakToText extends AppCompatActivity {
 
     public static TextView resultText;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-//    Intent intent=new Intent(this,MainActivity.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +35,6 @@ public class SpeakToText extends AppCompatActivity {
 
         }
         if (v.getId() == R.id.home){
-        //    startActivity(intent);
             NavUtils.navigateUpFromSameTask(this);
         }
 
