@@ -1,13 +1,16 @@
 package netroxtech.com.hvcontroller;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,16 +18,24 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class SpeakToText extends AppCompatActivity {
-
+    public static Button button;
     public static TextView resultText;
     private final int REQ_CODE_SPEECH_INPUT = 100;
+<<<<<<< HEAD
+=======
+
+   Context  context;
+//    Intent intent=new Intent(this,MainActivity.class);
+>>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak_to_text);
+       context = this;
         resultText=(TextView)findViewById(R.id.TVresult);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
     }
 
@@ -77,4 +88,17 @@ public class SpeakToText extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!resultText.getText().toString().equalsIgnoreCase("")) {
+            String txt = resultText.getText().toString();
+            new CreatePreference(context).saveCommands(txt);
+
+        }
+
+    }
+
+
 }
