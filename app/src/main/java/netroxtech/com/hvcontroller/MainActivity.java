@@ -1,6 +1,7 @@
 package netroxtech.com.hvcontroller;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -21,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.github.clans.fab.FloatingActionMenu;
-
 import java.text.CollationElementIterator;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     SmsManager smsManager;
     private static final int RESULT_PICK_CONTACT = 100;
-
+    public EditText msg_body;
     private EditText ph_noo;
+    Context context;
 
 
     @Override
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        context=this;
+
         setSupportActionBar(toolbar);
 
 
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         final ImageButton send_msg = (ImageButton) findViewById(R.id.send_btn);
-        final EditText msg_body = (EditText) findViewById(R.id.msg);
+         msg_body = (EditText) findViewById(R.id.msg);
           ph_noo = (EditText) findViewById(R.id.ph_no);
 
             FloatingActionButton opentext = (FloatingActionButton) findViewById(R.id.text_fab);
@@ -158,6 +161,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+      //  msg_body.setText("");
+       // if (msg_body.getText().toString().equalsIgnoreCase("")) {
+         //   String txt = msg_body.getText().toString();
+           String   text=     new CreatePreference(context).getCommands();
+            msg_body.setText(text);
+
+      //  }
+
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        new CreatePreference(context).deleteCommands();
+        msg_body.setText("");
+
+
     }
 
 }
