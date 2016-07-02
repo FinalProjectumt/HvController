@@ -1,10 +1,9 @@
 package netroxtech.com.hvcontroller;
 
-<<<<<<< HEAD
-=======
+
 import android.annotation.TargetApi;
 import android.content.Context;
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -22,11 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
-<<<<<<< HEAD
-=======
-import com.github.clans.fab.FloatingActionMenu;
-import java.text.CollationElementIterator;
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
     EditText msg_body;
     SmsManager smsManager;
     private static final int RESULT_PICK_CONTACT = 100;
-<<<<<<< HEAD
-=======
-    public EditText msg_body;
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
     private EditText ph_noo;
     Context context;
 
@@ -48,13 +38,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-<<<<<<< HEAD
+
         send_msg = (ImageButton) findViewById(R.id.send_btn);
         msg_body = (EditText) findViewById(R.id.msg);
-=======
         context=this;
 
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
         setSupportActionBar(toolbar);
 
         ImageButton contact_open = (ImageButton) findViewById(R.id.opencontact);
@@ -76,9 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SpeakToText.class));
             }
         });
-<<<<<<< HEAD
-=======
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
           ph_noo = (EditText) findViewById(R.id.ph_no);
 
             FloatingActionButton opentext = (FloatingActionButton) findViewById(R.id.text_fab);
@@ -211,11 +196,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-<<<<<<< HEAD
-
 }
-=======
-    }
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -238,6 +221,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
-
 }

@@ -21,12 +21,10 @@ public class SpeakToText extends AppCompatActivity {
     public static Button button;
     public static TextView resultText;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-<<<<<<< HEAD
-=======
+
 
    Context  context;
-//    Intent intent=new Intent(this,MainActivity.class);
->>>>>>> f356471b32fbbe79ed5218db6beb82cb95defa4a
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

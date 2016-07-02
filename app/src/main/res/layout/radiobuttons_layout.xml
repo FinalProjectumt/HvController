@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="97dp"
+        android:id="@+id/group"
+        android:layout_gravity="center_vertical"
+        android:measureWithLargestChild="true"
+        android:layout_marginTop="60dp"
+        android:layout_weight="0.32">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fan on"
+            android:id="@+id/Fanon"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:gravity="center" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fan off"
+            android:id="@+id/Fanoff"
+            android:gravity="center"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+
+            android:layout_gravity="center_vertical" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Light on"
+            android:id="@+id/Lighton"
+            android:gravity="center"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            />
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Light off"
+            android:id="@+id/Lightoff"
+            android:gravity="center"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Door open"
+            android:id="@+id/Dooropen"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Door close"
+            android:id="@+id/Doorclose"
+            android:layout_below="@+id/Fanon"
+            android:onClick="onRadioButtonClicked"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+    </RadioGroup>
+
+</LinearLayout>
